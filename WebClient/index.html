@@ -4,11 +4,27 @@
     <meta charset="UTF-8">
     <title>Boarding Pass</title>
     <link rel="stylesheet" href="CSS/style.css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-    <script src="JS/PrintDiv.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 </head>
 <body>
 
+<br><br>
+<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label input_form">
+    <label class="mdl-textfield__label">Enter PNR Number</label>
+    <input type="text" id="pnr" class="mdl-textfield__input">
+</div>
+<br>
+<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label input_form">
+    <label  id="nobags" class="mdl-textfield__label">Enter Number Of Bags</label>
+    <input type="number"  class="mdl-textfield__input">
+</div>
+<br>
+<button id="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+    SUBMIT
+</button>
+<div id="div_print">
 <div class="ticket inverse">
     <header>
         <div class="company-name">
@@ -18,37 +34,37 @@
     <section class="airports">
         <div class="airport">
             <div id="depap" class="airport-code">
-                CLT
+                XXX
             </div>
             <div class="dep-arr-label">
                 Departing
             </div>
             <div id="deptime" class="time">
-                7:45am
+                XX:XXXX
             </div>
         </div>
         <div class="airport">
             <div id="arrap" class="airport-code">
-                TPA
+                XXX
             </div>
             <div class="dep-arr-label">
                 Arriving
             </div>
             <div id="arrtime" class="time">
-                9:15am
+                XX:XXXX
             </div>
         </div>
     </section>
     <section class="place">
         <div id="name" style="color: #707884">
-            ARVIND KALRA
+            XXXXX XXXXX
         </div>
         <div class="place-block">
             <div class="place-label">
                 Seat
             </div>
             <div id="seat" class="place-value">
-                2A
+                XX
             </div>
         </div>
         <div id="qrcode" class="qr"></div>
@@ -59,14 +75,19 @@
 <div class="ticket inverse">
     <header>
         <div class="company-name">
-            IOSD AIRLINES
+            IOSD AIRLINES (Luggage Tag)
         </div>
     </header>
         <div id="qrcode1" class="qr"></div>
         <div id="qrcode2" class="qr"></div>
-
+</div>
 </div>
 
+<script>
+    $('#qrcode').qrcode({width: 210,height: 210,text: "XXXX"});
+    $('#qrcode1').qrcode({width: 150,height: 150,text: "XXXX"});
+    $('#qrcode2').qrcode({width: 150,height: 150,text: "XXXX"});
+</script>
 <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 <script type="text/javascript" src="JS/jquery.qrcode.min.js"></script>
 <script src="JS/passgenerate.js"></script>
