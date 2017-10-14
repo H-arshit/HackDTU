@@ -1,0 +1,2 @@
+class Unclaimed < ApplicationRecord
+end

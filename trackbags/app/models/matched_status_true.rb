@@ -1,0 +1,2 @@
+class MatchedStatusTrue < ApplicationRecord
+end
