@@ -17,5 +17,11 @@
         android:layout_height="wrap_content"
         android:text="Unclaimed Baggage"
         android:id="@+id/btnunclaimed"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Search For Lost Bags"
+        android:id="@+id/search_button"
+        />
 
 </LinearLayout>
