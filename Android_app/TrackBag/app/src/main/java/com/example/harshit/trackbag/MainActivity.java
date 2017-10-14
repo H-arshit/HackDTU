@@ -9,7 +9,7 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btncheck,btnunclaimed;
+    Button btncheck,btnunclaimed , search_button;
 
 
     @Override
@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         btncheck=(Button)findViewById(R.id.btncheck);
         btnunclaimed=(Button)findViewById(R.id.btnunclaimed);
-
+        search_button=(Button)findViewById(R.id.search_button);
 
         btncheck.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -32,6 +32,15 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this,ScanUnclaimedBags.class));
             }
         });
+
+        search_button.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this,SearchForLostBags.class));
+            }
+        });
+
+
 
     }
 
