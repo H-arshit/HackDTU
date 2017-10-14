@@ -6,7 +6,7 @@ $('#submit').click(function () {
     var baggagecount = $('#nobags').val();
     var obj = { pnr : pnr,
         baggage_count : baggagecount};
-    $.post('http://192.168.43.126:3000/pnr/check_in', obj , function (res) {
+    $.post('http://localhost:3000/pnr/check_in', obj , function (res) {
         console.log(res);
         $('#depap').text(res.departue_dest);
         $('#deptime').text(res.departure_time.substr(11, 5));
