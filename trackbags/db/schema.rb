@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171014024341) do
+ActiveRecord::Schema.define(version: 20171014055750) do
 
   create_table "matched_status_falses", force: :cascade do |t|
     t.string "baggage_pnr"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20171014024341) do
     t.string "baggage_pnr"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "location"
   end
 
   create_table "user_details", force: :cascade do |t|

@@ -4,28 +4,19 @@ class PnrController < ApplicationController
 
     @pnr=params["pnr"]
     @baggage_count=params["baggage_count"]
-    userdetails = UserDetail.find_by(pnr: @pnr)
-    userdetails.baggage_count=@baggage_count
-    userdetails.save
+    if userdetails = UserDetail.find_by(pnr: @pnr)
+      userdetails.baggage_count=@baggage_count
+      userdetails.save
 
-    render json: userdetails.to_json
+      render json: userdetails.to_json
+    else
+      data={
+        message: "sorry pls enter a valid pnr"
+      }
+      render json: data
+    end
 
   end
-  # def baggage_count
-  #   @pnr=params["pnr"]
-  #   userdetails = UserDetail.find_by(pnr: @pnr)
-  #   userdetails.baggage_count=params["baggage_count"]
-  #   if userdetails.save
-  #     data={
-  #       message:"successfully updated bag count"
-  #     }
-  #   else
-  #     data={
-  #       message:"some error occured, please try again later"
-  #     }
-  #   end
-  #   render json: data
-  # end
 
 
   def match_status_true
@@ -69,11 +60,52 @@ class PnrController < ApplicationController
 
 
   def unclaimed
+    @location=params['location']
     @baggage_pnr = params["baggage_pnr"]
-    Unclaimed.create(baggage_pnr: @baggage_pnr)
+    unclaimed=Unclaimed.where(baggage_pnr: @baggage_pnr).first_or_initialize
+    unclaimed.location=@location
+    unclaimed.save!
     data={
       message: 'added to unclaimed bags'
     }
+    render json: data
+
+  end
+  def search_for_lost_bag
+
+    @pass_pnr=params['baggage_pnr']
+    if UserDetail.find_by(pnr: @pass_pnr)
+
+      if MatchedStatusTrue.find_by(pnr: @pass_pnr)
+        data={
+          message: "your bag is found!"
+        }
+      else
+        if MatchedStatusFalse.find_by(baggage_pnr: @pass_pnr)
+          location=MatchedStatusFalse.find_by(baggage_pnr: @pass_pnr).pass_pnr
+          location=UserDetail.find_by(pnr: location).arrival_dest
+          data={
+            message:"we found your bag at" +location
+          }
+
+        elsif Unclaimed.find_by(baggage_pnr: @pass_pnr) !=nil
+          location=Unclaimed.find_by(baggage_pnr: @pass_pnr).location
+          data={
+            message: "We found your baggage. It is sitting unclaimed at " +location
+          }
+        else
+
+          data={
+            message: "Sorry, we cant find ur bag right now. But we will inform you once we do"
+          }
+        end
+      end
+    else
+        data={
+          message: "that is an invalid pnr, please enter a valid pnr"
+        }
+    end
+
     render json: data
 
   end
