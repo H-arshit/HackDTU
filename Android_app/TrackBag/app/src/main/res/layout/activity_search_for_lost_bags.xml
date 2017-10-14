@@ -4,15 +4,34 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg1"
     tools:context="com.example.harshit.trackbag.SearchForLostBags">
 
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvsearchpnr"
+        android:text="Enter PNR number"
+        android:layout_marginLeft="48dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="12dp"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/tvSearch"
+        android:layout_toEndOf="@+id/tvSearch" />
+
     <android.support.v7.widget.SearchView
+        android:id="@+id/search_for_bags"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/search_for_bags"
-        />
-
+       android:id="@+id/tvSearch"
+        android:layout_below="@+id/search_for_bags"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="124dp" />
 
 
 </RelativeLayout>

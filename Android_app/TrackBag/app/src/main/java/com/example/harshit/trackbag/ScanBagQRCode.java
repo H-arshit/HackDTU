@@ -10,12 +10,12 @@ import com.google.zxing.Result;
 
 import me.dm7.barcodescanner.zxing.ZXingScannerView;
 
-public class ScanBagQRCode extends AppCompatActivity implements View.OnClickListener , ZXingScannerView.ResultHandler{
+public class ScanBagQRCode extends AppCompatActivity implements ZXingScannerView.ResultHandler{
 
     public String bagQR;
 
     private ZXingScannerView zXingScannerView;
-    Button scanBaggage;
+
     public static  String passqr="";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,19 +27,10 @@ public class ScanBagQRCode extends AppCompatActivity implements View.OnClickList
         zXingScannerView = new ZXingScannerView(getApplicationContext());
 
         passqr = getIntent().getStringExtra("passqr");
-        scanBaggage = (Button)findViewById(R.id.scanBaggage);
-        scanBaggage.setOnClickListener(this);
-
-    }
-
-    @Override
-    public void onClick(View view) {
 
         setContentView(zXingScannerView);
         zXingScannerView.setResultHandler(this);
         zXingScannerView.startCamera();
-
-
     }
 
 

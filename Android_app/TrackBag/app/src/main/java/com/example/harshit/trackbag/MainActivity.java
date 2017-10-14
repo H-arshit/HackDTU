@@ -5,11 +5,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 
 public class MainActivity extends AppCompatActivity {
 
     Button btncheck,btnunclaimed , search_button;
+
 
 
     @Override
@@ -42,7 +44,28 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
+
     }
+
+
+    boolean doubleBackToExitPressedOnce = false;
+
+    @Override
+    public void onBackPressed() {
+        if (doubleBackToExitPressedOnce) {
+            super.onBackPressed();
+            moveTaskToBack(true);
+            return;
+        }
+
+        this.doubleBackToExitPressedOnce = true;
+        Toast.makeText(this,"Press Back Again To Exit",Toast.LENGTH_LONG).show();
+
+
+        //moveTaskToBack(true);
+    }
+
 
 
 

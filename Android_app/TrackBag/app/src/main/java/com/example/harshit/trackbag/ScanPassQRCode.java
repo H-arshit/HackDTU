@@ -11,12 +11,11 @@ import com.google.zxing.Result;
 
 import me.dm7.barcodescanner.zxing.ZXingScannerView;
 
-public class ScanPassQRCode extends AppCompatActivity implements View.OnClickListener , ZXingScannerView.ResultHandler{
+public class ScanPassQRCode extends AppCompatActivity implements ZXingScannerView.ResultHandler{
 
     public String passQR;
 
     private ZXingScannerView zXingScannerView;
-    Button scanPass;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,20 +25,9 @@ public class ScanPassQRCode extends AppCompatActivity implements View.OnClickLis
 
         zXingScannerView = new ZXingScannerView(getApplicationContext());
 
-        scanPass = (Button)findViewById(R.id.scanPass);
-        scanPass.setOnClickListener(this);
-
-    }
-
-    @Override
-    public void onClick(View view) {
-
         setContentView(zXingScannerView);
         zXingScannerView.setResultHandler(this);
         zXingScannerView.startCamera();
-
-
-
 
     }
 

@@ -1,12 +1,14 @@
 package com.example.harshit.trackbag;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.SearchView;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.harshit.trackbag.models.UnclaimedBagsData;
@@ -19,11 +21,21 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class SearchForLostBags extends AppCompatActivity implements SearchView.OnQueryTextListener {
 
+    TextView tv,tvSearch;
     SearchView search_for_bags;
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        startActivity(new Intent(getBaseContext(),MainActivity.class));
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_for_lost_bags);
+        tv=(TextView)findViewById(R.id.tvsearchpnr);
+        tvSearch=(TextView)findViewById(R.id.tvSearch);
 
         search_for_bags = (SearchView)findViewById(R.id.search_for_bags);
         search_for_bags.setOnQueryTextListener(this);
@@ -56,10 +68,13 @@ public class SearchForLostBags extends AppCompatActivity implements SearchView.O
 
                 if (response.body() != null)
 
-                Toast.makeText(getApplicationContext(), response.body().getMessage() ,Toast.LENGTH_LONG).show();
+                    tvSearch.setText(response.body().getMessage());
+
+               // Toast.makeText(getApplicationContext(), response.body().getMessage() ,Toast.LENGTH_LONG).show();
 
                 else
-                    Toast.makeText(getApplicationContext(), "Not Found Yet" ,Toast.LENGTH_LONG).show();
+                    tvSearch.setText("NOT FOUND YET!!!");
+                    //Toast.makeText(getApplicationContext(), "Not Found Yet" ,Toast.LENGTH_LONG).show();
 
 
             }
@@ -81,6 +96,9 @@ public class SearchForLostBags extends AppCompatActivity implements SearchView.O
 
     @Override
     public boolean onQueryTextChange(String newText) {
+
+        tv.setText(" ");
+
         return false;
     }
 }

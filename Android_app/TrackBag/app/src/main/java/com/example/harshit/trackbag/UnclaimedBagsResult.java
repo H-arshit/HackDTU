@@ -1,5 +1,6 @@
 package com.example.harshit.trackbag;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -66,6 +67,8 @@ public class UnclaimedBagsResult extends AppCompatActivity {
 
                     }
                 });
+
+                startActivity(new Intent(getBaseContext(),MainActivity.class));
 
             }
         });

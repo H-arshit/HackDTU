@@ -18,7 +18,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class ScanUnclaimedBags extends AppCompatActivity implements View.OnClickListener , ZXingScannerView.ResultHandler{
+public class ScanUnclaimedBags extends AppCompatActivity implements  ZXingScannerView.ResultHandler{
 
     private String unclaimedbagQR;
     private ZXingScannerView zXingScannerView;
@@ -33,20 +33,12 @@ public class ScanUnclaimedBags extends AppCompatActivity implements View.OnClick
         setContentView(R.layout.activity_scan_unclaimed_bags);
 
         zXingScannerView = new ZXingScannerView(getApplicationContext());
-        scan = (Button)findViewById(R.id.scan);
-        scan.setOnClickListener(this);
-
-    }
-
-    @Override
-    public void onClick(View view) {
-
         setContentView(zXingScannerView);
         zXingScannerView.setResultHandler(this);
         zXingScannerView.startCamera();
 
-
     }
+
 
 
     @Override
