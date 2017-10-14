@@ -1,8 +1,12 @@
 @import "https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css";
 body {
   text-align: center;
+  background-color: #f6f7f9;
 }
-
+.passbox{
+  background-color: #9299A0;
+  height: 80vh;
+}
 .ticket {
   display: inline-block;
   width: 350px;
@@ -39,7 +43,7 @@ body {
   content: '';
   width: 16px;
   height: 16px;
-  background-color: #fff;
+  background-color: #f6f7f9;
   position: absolute;
   bottom: -8px;
   right: -8px;
@@ -50,7 +54,7 @@ body {
   content: '';
   width: 16px;
   height: 16px;
-  background-color: #fff;
+  background-color: #f6f7f9;
   position: absolute;
   bottom: -8px;
   left: -8px;
@@ -105,7 +109,7 @@ body {
   content: '';
   width: 16px;
   height: 16px;
-  background-color: #fff;
+  background-color: #f6f7f9;
   position: absolute;
   bottom: -8px;
   right: -8px;
@@ -116,7 +120,7 @@ body {
   content: '';
   width: 16px;
   height: 16px;
-  background-color: #fff;
+  background-color: #f6f7f9;
   position: absolute;
   bottom: -8px;
   left: -8px;
@@ -171,4 +175,28 @@ body {
 .ticket.inverse .airport .airport-code {
   color: #707884;
   font-weight: 500;
+}
+.ticket.inverse #qrcode1 {
+  height: 195px;
+}
+#print{
+  float: right;
+  margin-right: 30px;
+}
+.lbl{
+  color: black!important;
+}
+.head{
+  font-family: 'Pacifico', cursive;
+  color: #03a9f4;
+}
+.btns{
+  padding: 5px 32%;
+  margin-bottom: 100px;
+}
+#printbag{
+  float: right;
+}
+#printboard{
+  float: left;
 }

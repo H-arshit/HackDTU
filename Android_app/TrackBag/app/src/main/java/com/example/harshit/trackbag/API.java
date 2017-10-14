@@ -1,6 +1,7 @@
 package com.example.harshit.trackbag;
 
 import com.example.harshit.trackbag.models.MatchStatusT;
+import com.example.harshit.trackbag.models.UnclaimedBagsData;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -20,4 +21,12 @@ public interface API {
 
     @POST("match_status_false")
     Call<ResultData> match_false(@Body MatchStatusT requestData);
+
+    @POST("unclaimed")
+    Call<ResultData> unclaimed_bag_data_add(@Body UnclaimedBagsData unclaimedBagsData);
+
+
+    @POST("search_for_lost_bag")
+    Call<ResultData> search_unclaimed_data(@Body UnclaimedBagsData unclaimedBagsData);
+
 }
