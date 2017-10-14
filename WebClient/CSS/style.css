@@ -190,3 +190,13 @@ body {
   font-family: 'Pacifico', cursive;
   color: #03a9f4;
 }
+.btns{
+  padding: 5px 32%;
+  margin-bottom: 100px;
+}
+#printbag{
+  float: right;
+}
+#printboard{
+  float: left;
+}
